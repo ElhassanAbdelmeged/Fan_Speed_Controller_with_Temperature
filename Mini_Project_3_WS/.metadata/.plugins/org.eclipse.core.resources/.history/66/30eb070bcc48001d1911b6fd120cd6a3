@@ -1,0 +1,27 @@
+#include<avr/io.h>
+#include<util/delay.h>
+#include"motor.h"
+#include"adc.h"
+#include"gpio.h"
+#include"lcd.h"
+#include"lm35_sensor.h"
+int main(void){
+
+	ADC_ConfigType={INTERNAl,PRESCALER_8}
+
+
+	/*initializing the modules by calling the functions*/
+	LCD_init();
+	DcMotor_Init();
+	ADC_init(const ADC_ConfigType * Config_Ptr)
+
+
+
+	while(1){
+
+		DcMotor_Rotate(ANTI_CW,80);
+	}
+
+
+
+}

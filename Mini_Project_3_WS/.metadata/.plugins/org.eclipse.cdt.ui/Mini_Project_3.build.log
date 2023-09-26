@@ -1,0 +1,38 @@
+23:18:15 **** Incremental Build of configuration Debug for project Mini_Project_3 ****
+make all 
+Building file: ../App.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"App.d" -MT"App.o" -c -o "App.o" "../App.c"
+Finished building: ../App.c
+ 
+Building target: Mini_Project_3.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Mini_Project_3.map -mmcu=atmega16 -o "Mini_Project_3.elf"  ./App.o ./PWM.o ./adc.o ./gpio.o ./lcd.o ./lm35_sensor.o ./motor.o   
+Finished building target: Mini_Project_3.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Mini_Project_3.elf  >"Mini_Project_3.lss"
+Finished building: Mini_Project_3.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Mini_Project_3.elf  "Mini_Project_3.hex"
+Finished building: Mini_Project_3.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Mini_Project_3.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:   10056 bytes (61.4% Full)
+(.text + .data + .bootloader)
+
+Data:        296 bytes (28.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:18:16 Build Finished. 0 errors, 0 warnings. (took 885ms)
+

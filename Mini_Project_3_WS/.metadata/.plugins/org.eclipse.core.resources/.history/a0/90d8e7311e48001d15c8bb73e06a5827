@@ -1,0 +1,16 @@
+#include<avr/io.h>
+#include<util/delay.h>
+
+int main(void){
+
+
+
+	DcMotor_Init();
+	while(1){
+
+		DcMotor_Rotate(CW,50)
+	}
+
+
+
+}

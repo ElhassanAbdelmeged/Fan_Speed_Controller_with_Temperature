@@ -1,0 +1,42 @@
+#include<avr/io.h>
+#include<util/delay.h>
+#include"motor.h"
+#include"adc.h"
+#include"gpio.h"
+#include"lcd.h"
+#include"lm35_sensor.h"
+int main(void){
+	uint8 Temprature;
+ADC_ConfigType ADC_Parametars={INTERNAL,PRESCALER_8};
+/*initializing the modules by calling the functions*/
+	LCD_init();
+	DcMotor_Init();
+	ADC_init(&ADC_Parametars);
+
+while(1)
+{
+
+	ADC_readChannel(PA2);
+	Temprature= LM35_getTemperature();
+
+	if(Temprature<30)
+	{
+		DcMotor_Rotate(STOP,0);
+		LCD_displayStringRowColumn(0,4,"FAN IS OFF");
+		LCD_displayStringRowColumn(1,4,"Temp = ");
+		LCD_intgerToString(Temprature);
+
+
+	}
+
+
+
+
+
+
+		//DcMotor_Rotate(ANTI_CW,80);
+	}
+
+
+
+}

@@ -1,0 +1,6 @@
+#include<avr/io.h>
+#include"PWM.h"
+
+void DcMotor_Init(void){
+
+}
